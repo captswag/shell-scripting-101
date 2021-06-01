@@ -1,4 +1,4 @@
-# Variables (Part 1)
+# Variables (part 1)
 
 A symbolic name for a chunk of memory to which we can assign values, read and manipulate its contents.
 

@@ -1,4 +1,4 @@
-# A First Script
+# A first script
 
 _first.sh_
 
