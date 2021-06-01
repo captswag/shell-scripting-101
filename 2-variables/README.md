@@ -103,7 +103,7 @@ hello
 
 Once the shell script exits, its environment is destroyed. But `MYVAR` keeps its value of `hello` within your
 interactive shell. In order to receive environment changes back from the script, we must source the script. This
-effectively runs the script within our own interactive shell, instead of spawing anohter shell to run it.
+effectively runs the script within our own interactive shell, instead of spawing another shell to run it.
 
 We can source a script via the "." (dot) command.
 
