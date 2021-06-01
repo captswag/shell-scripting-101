@@ -53,7 +53,7 @@ correctly. With the `MY_MESSAGE` variable earlier we had to put double quotes ar
 If you try to read an undeclared variable, the result is the empty string. You get no warnings or errors which can cause
 subtle bugs.
 
-_myvar2.sh_
+_var4.sh_
 
 ```
 #!/bin/sh
@@ -101,7 +101,7 @@ $ echo $MYVAR
 hello
 ```
 
-Once the shell script exists, its environment is destroyed. But `MYVAR` keeps its value of `hello` within your
+Once the shell script exits, its environment is destroyed. But `MYVAR` keeps its value of `hello` within your
 interactive shell. In order to receive environment changes back from the script, we must source the script. This
 effectively runs the script within our own interactive shell, instead of spawing anohter shell to run it.
 
