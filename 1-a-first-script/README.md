@@ -15,10 +15,9 @@ The second line starting with `#` marks the line as a comment.
 
 The third line runs a command, echo with two parameters or arguments. The first is "Hello", and the second is "World".
 
-Now run `chmod 755 first.sh` to make the file executable and run `./first.sh`. The screen should look like this.
+Now run `chmod 755 first.sh` to make the file executable and run `./first.sh`. The screen should then look like this.
 
 ```
 $ ./first.sh
 Hello World
-$
 ```
