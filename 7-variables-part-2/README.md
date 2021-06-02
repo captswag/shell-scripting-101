@@ -34,6 +34,7 @@ tidy this up.
 
 ```
 echo "My name is `basename $0`"
+```
 
 We can take more than 9 parameters by using the `shift command`. Look at the script below.
 
