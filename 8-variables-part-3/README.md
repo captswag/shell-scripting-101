@@ -50,8 +50,8 @@ read MYNAME
 echo "Your name is: ${MYNAME:-`whoami`}"
 ```
 
-We're using the output of the whoami comamnd, which prints your login name (UID). The more canonical example is to use
-fixed test like this.
+We're using the output of the `whoami` command, which prints your login name (UID). The more canonical example is to use
+fixed text like this.
 
 ```
 echo "Your name is: ${MYNAME:-John Doe}"
