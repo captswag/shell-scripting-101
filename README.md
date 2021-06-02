@@ -9,3 +9,4 @@
 5. [Case](/5-case)
 6. [Test](/6-test)
 7. [Variables (part 2)](/7-variables-part-2)
+8. [Variables (part 3)](/8-variables-part-3)
