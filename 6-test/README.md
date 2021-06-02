@@ -89,3 +89,20 @@ of the line, but the following line should be treated as part of the current lin
 
 Similarly `-a`, `-e` means file exists. `-S` means file is a socket, `-nt` mean file is newer than, `-ot` means file is
 older than and `-O` means file is owned by the user runnings the test.
+
+One last example which is self explanatory.
+
+_test2.sh_
+
+```
+#!/bin/sh
+X=0
+while [ -n "$X" ]
+do
+  echo "Enter some text (RETURN to quit)"
+  read X
+  if [ -n "$X" ]; then
+    echo "You said: $X"
+  fi
+done
+___
