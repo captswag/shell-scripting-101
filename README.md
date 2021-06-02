@@ -7,4 +7,3 @@
 3. [Escape characters](/3-escape-characters)
 4. [Loops](/4-loops)
 5. [Case](/5-case)
-6. [Varialbles (part 2)](/6-variables)
