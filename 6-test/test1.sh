@@ -24,4 +24,4 @@ fi
 [ -x "$X" ] && \
     echo "X is the path of an executable file"
 [ "$X" -nt "/etc/passwd" ] && \
-          echo "X is a file which is newer than /etc/passwd"
+    echo "X is a file which is newer than /etc/passwd"
