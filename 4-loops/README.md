@@ -47,7 +47,7 @@ do
 done
 ```
 
-The color (:) always evaluates to true. While this can be necessary sometimes, it is often preferable to use a real exit
+The colon (:) always evaluates to true. While this can be necessary sometimes, it is often preferable to use a real exit
 condition.
 
 _while2.sh_
@@ -61,6 +61,9 @@ do
   echo "You typed: $INPUT_STRING"
 done
 ```
+
+Another useful trick is `while read` loop. This example also uses the `case` statement. It reads from the file
+_myfile.txt_ and for each line, tells you what language it thinks is being used.
 
 _while3.sh_
 
