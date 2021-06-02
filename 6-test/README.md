@@ -4,14 +4,14 @@ Test is more frequently called `[`. `[` is a symbolic link to `test`. This means
 like `ls` and other programs. So it must be surrounded by spaces.
 
 ```
-if [$foo = "bar"]
+if [$foo = "bar" ]
 ```
 
-Will not work, as it is interpreted as `if test$foo = "bar" ], which is a `]` without a beginning `[`.
+Will not work, as it is interpreted as `if test$foo = "bar" ]`, which is a `]` without a beginning `[`.
 
 A single `=` should be used for string comparison and `-eq` for integers.
 
-Test is most often onvoked indirectly via the `if` and `while` statements. It is also the reason you will come into
+Test is most often invoked indirectly via the `if` and `while` statements. It is also the reason you will come into
 difficulties if you create a program called `test` and try to run it, as this shell built-in will be called instead of
 your program!
 
@@ -53,6 +53,32 @@ _test1.sh_
 
 ```
 #!/bin/sh
+if [ "$X" -lt "0" ]
+then
+  echo "X is less than zero"
+fi
+if [ "$X" -gt "0" ]; then
+  echo "X is more than zero"
+fi
+[ "$X" -le "0" ] && \
+    echo "X is less than or equal to zero"
+[ "$X" -ge "0" ] && \
+    echo "X is more than or equal to zero"
+[ "$X" = "0" ] && \
+    echo "X is the string or number \"0\""
+[ "$X" = "hello" ] && \
+    echo "X matches the string \"hello\""
+[ "$X" != "hello" ] && \
+    echo "X is not the string \"hello\""
+[ -n "$X" ] && \
+    echo "X is of nonzero length"
+[ -f "$X" ] && \
+    echo "X is the path of a real file" || \
+    echo "No such file: $X"
+[ -x "$X" ] && \
+    echo "X is the path of an executable file"
+[ "$X" -nt "/etc/passwd" ] && \
+    echo "X is a file which is newer than /etc/passwd"
 ```
 
 As we see from this example, `test` can perform many tests on numbers, strings and filenames.
