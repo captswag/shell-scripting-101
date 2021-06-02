@@ -6,3 +6,4 @@
 2. [Variables (part 1)](/2-variables)
 3. [Escape characters](/3-escape-characters)
 4. [Loops](/4-loops)
+5. [Case](/5-case)
