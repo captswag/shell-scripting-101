@@ -1,6 +1,6 @@
 # Case
 
-The `case` statement saves going through a while set of `if .. then .. else` statements.
+The `case` statement saves going through a whole set of `if .. then .. else` statements.
 
 _talk.sh_
 
@@ -41,4 +41,4 @@ That's all folks!
 Note that if we wanted to exit the script completely then we would use the command `exit` insted of `break`. The third
 command `*)` is the default catch-all condition. It is not required, but is often useful for debugging purposes.
 
-The whoe case statement is ended with `esac` (case backwards`).
+The whole case statement is ended with `esac` (case backwards`).
