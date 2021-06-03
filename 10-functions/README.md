@@ -160,6 +160,7 @@ adduser()
   USER=$1
   PASSWORD=$2
   shift; shift;
+  COMMENTS=$@
   useradd -c "${COMMENTS}" $USER
   if [ "$?" -ne "0" ]; then
     echo "Useradd failed"
