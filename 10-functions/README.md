@@ -78,3 +78,114 @@ script.
 ## Recursion
 
 Functions can be recursive, here's a simple example of factorial function.
+
+_factorial.sh_
+
+```
+#!/bin/sh
+
+factorial()
+{
+  if [ "$1" -gt "1" ]; then
+    i=`expr $1 - 1`
+    j=`factorial $i`
+    k=`expr $1 \* $j`
+    echo $k
+  else
+    echo 1
+  fi
+}
+
+while :
+do
+  echo "Enter a number:"
+  read x
+  factorial $x
+done
+}
+```
+
+However when writing a suite of scripts, it is often easier to write a "library" of useful functions, and source that
+file at the start of the other scripts, which use the functions. As we shall see in the following example.
+
+_common.lib_
+
+```
+STD_MSG="About to rename some files..."
+
+rename()
+{
+  # expects to be called as: rename .txt .bak
+  FROM=$1
+  TO=$2
+
+  for i in *$FROM
+  do
+    j=`basename $i $FROM`
+    mv $i ${j}$TO
+  done
+}
+```
+
+_function3.sh_
+
+```
+#!/bin/sh
+. ./common.lib
+echo $STD_MSG
+rename .txt .bak
+```
+
+_function4.sh_
+
+```
+#!/bin/sh
+. ./common.lib
+echo $STD_MSG
+rename .html .html-bak
+```
+
+Here we see two user shell scripts _function3.sh_ and _function4.sh_ each sourcing the common library file _common.lib_
+and using variables and functions declared in that file.
+
+## Return codes
+
+_function5.sh_
+
+```
+#!/bin/sh
+
+adduser()
+{
+  USER=$1
+  PASSWORD=$2
+  shift; shift;
+  useradd -c "${COMMENTS}" $USER
+  if [ "$?" -ne "0" ]; then
+    echo "Useradd failed"
+    return 1
+  fi
+  passwd $USER $PASSWORD
+  if [ "$?" -ne "0" ]; then
+    echo "Setting password failed"
+    return 2
+  fi
+  echo "Added user $USER ($COMMENTS) with pass $PASSWORD"
+}
+
+# Main script starts here
+
+adduser bob letmein Bob Holness from Blockbusters
+ADDUSER_RETURN_CODE=$?
+if [ "$ADDUSER_RETURN_CODE" -eq "1" ]; then
+  echo "Something went wrong with useradd"
+elif [ "$ADDUSER_RETURN_CODE" -eq "2" ]; then
+  echo "Something went wrong with passwd"
+else
+  echo "Bob Holness added to the system."
+fi
+```
+
+You have to save `$?` because as soon as you run another command, such as `if`, it's value will be replaced. That is why
+we save the `adduser` return value in `$ADDUSER_RETURN_CODE` variable, before acting on its content. 
+`$ADDUSER_RETURN_CODE` is certain to remain the same. `$?` will change with every command that is executed.
