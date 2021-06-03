@@ -77,4 +77,4 @@ script.
 
 ## Recursion
 
-Functions can be recursive, here's a simple example of factorial function (which I wrote own my own).
+Functions can be recursive, here's a simple example of factorial function.
